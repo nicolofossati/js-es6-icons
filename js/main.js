@@ -11,3 +11,126 @@ Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi d
 Quando l’utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 */
 
+const data = [
+	{
+		name: 'cat',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'crow',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'dog',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'dove',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'dragon',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'horse',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'hippo',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'fish',
+		prefix: 'fa-',
+		type: 'animal',
+		family: 'fas',
+		color: 'orange'
+	},
+	{
+		name: 'carrot',
+		prefix: 'fa-',
+		type: 'vegetable',
+		family: 'fas',
+		color: 'green'
+	},
+	{
+		name: 'apple-alt',
+		prefix: 'fa-',
+		type: 'vegetable',
+		family: 'fas',
+		color: 'green'
+	},
+	{
+		name: 'lemon',
+		prefix: 'fa-',
+		type: 'vegetable',
+		family: 'fas',
+		color: 'green'
+	},
+	{
+		name: 'pepper-hot',
+		prefix: 'fa-',
+		type: 'vegetable',
+		family: 'fas',
+		color: 'green'
+	},
+	{
+		name: 'user-astronaut',
+		prefix: 'fa-',
+		type: 'user',
+		family: 'fas',
+		color: 'blue'
+	},
+	{
+		name: 'user-graduate',
+		prefix: 'fa-',
+		type: 'user',
+		family: 'fas',
+		color: 'blue'
+	},
+	{
+		name: 'user-ninja',
+		prefix: 'fa-',
+		type: 'user',
+		family: 'fas',
+		color: 'blue'
+	},
+	{
+		name: 'user-secret',
+		prefix: 'fa-',
+		type: 'user',
+		family: 'fas',
+		color: 'blue'
+	}
+];
+
+const mainDom = document.querySelector(".cards-container");
+
+data.forEach(obj => {
+    const newCardDom = document.createElement('div');
+    newCardDom.classList.add('card');
+    newCardDom.innerHTML = `<i class=\"fa-solid fa-${obj.name} orange\"></i><span>${obj.name.toUpperCase()}</span>`;
+    mainDom.appendChild(newCardDom);
+});
