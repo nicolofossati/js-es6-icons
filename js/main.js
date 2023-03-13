@@ -1,11 +1,4 @@
 /* 
-Milestone 1
-Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell’icona 
-e l’icona stessa.
-
-Milestone 2
-Ciascuna icona ha una proprietà “color”: utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
-
 Milestone 3
 Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user).
 Quando l’utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
@@ -128,16 +121,36 @@ const data = [
 
 const mainDom = document.querySelector(".cards-container");
 
-data.forEach(obj => {
-    const newCardDom = document.createElement('div');
-    newCardDom.classList.add('card');
-    const iconDom = document.createElement('i');
-    iconDom.classList.add(`fa-solid`);
-    iconDom.classList.add(`${obj.prefix}${obj.name}`);
-    iconDom.style.color = `${obj.color}`;
-    const spanDom = document.createElement('span');
-    newCardDom.appendChild(iconDom);
-    newCardDom.appendChild(spanDom);
-    spanDom.innerHTML = `${obj.name.toUpperCase()}`;
-    mainDom.appendChild(newCardDom);
+print_array(data);
+
+const selectDom = document.querySelector('#choose');
+
+selectDom.addEventListener('change', function(){
+    const value = this.value;
+    const dataFiltered = data.filter((obj) => {
+        if(value == "all"){
+            return true;
+        } else if(obj.type == value){
+            return true;
+        }
+        return false;
+    });
+    print_array(dataFiltered);
 });
+
+function print_array(array){
+    mainDom.innerHTML = "";
+    array.forEach(obj => {
+        const newCardDom = document.createElement('div');
+        newCardDom.classList.add('card');
+        const iconDom = document.createElement('i');
+        iconDom.classList.add(`fa-solid`);
+        iconDom.classList.add(`${obj.prefix}${obj.name}`);
+        iconDom.style.color = `${obj.color}`;
+        const spanDom = document.createElement('span');
+        newCardDom.appendChild(iconDom);
+        newCardDom.appendChild(spanDom);
+        spanDom.innerHTML = `${obj.name.toUpperCase()}`;
+        mainDom.appendChild(newCardDom);
+    });
+}
