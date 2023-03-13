@@ -131,6 +131,13 @@ const mainDom = document.querySelector(".cards-container");
 data.forEach(obj => {
     const newCardDom = document.createElement('div');
     newCardDom.classList.add('card');
-    newCardDom.innerHTML = `<i class=\"fa-solid fa-${obj.name} orange\"></i><span>${obj.name.toUpperCase()}</span>`;
+    const iconDom = document.createElement('i');
+    iconDom.classList.add(`fa-solid`);
+    iconDom.classList.add(`${obj.prefix}${obj.name}`);
+    iconDom.style.color = `${obj.color}`;
+    const spanDom = document.createElement('span');
+    newCardDom.appendChild(iconDom);
+    newCardDom.appendChild(spanDom);
+    spanDom.innerHTML = `${obj.name.toUpperCase()}`;
     mainDom.appendChild(newCardDom);
 });
